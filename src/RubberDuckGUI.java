@@ -22,13 +22,13 @@ public class RubberDuckGUI implements ActionListener {
 	char guess =' ';
 	ArrayList <JLabel> word = new ArrayList<JLabel>();
 	ImagePaint img;
+	private boolean playAgain = false;
 	
-	public RubberDuckGUI(Hangman hang) {
-		this.hang=hang;
+	public RubberDuckGUI() {
+		hang = new Hangman();
 		createBoard();
 		createKeys();
 		createWord();
-		//createBackground();
         frame.pack();
         frame.setVisible(true);
 	}
@@ -118,6 +118,7 @@ public class RubberDuckGUI implements ActionListener {
 		 label.setOpaque(true);
 		 label.setBounds(0, 600, 1000, 200);
 		 panelbg.add(label, JLayeredPane.PALETTE_LAYER);
+		 askToPlayAgain();
 	}
 
 
@@ -159,6 +160,7 @@ public class RubberDuckGUI implements ActionListener {
 		panelbg.add(label, JLayeredPane.PALETTE_LAYER);
 		
 		panelbg.add(bgImg, JLayeredPane.DEFAULT_LAYER);
+		askToPlayAgain();
 	}
 	
 	private void updateBoard() {
@@ -177,4 +179,18 @@ public class RubberDuckGUI implements ActionListener {
 		}	
 		frame.repaint();
 	}
+	
+	private void askToPlayAgain() {
+		int response = JOptionPane.showConfirmDialog(frame, "Would you like to play again?");
+
+		if (response == JOptionPane.YES_OPTION) {
+			frame.dispose();
+			new RubberDuckGUI();
+		}else {
+			System.exit(0);
+		}
+	}
+	
+	
+	
 }

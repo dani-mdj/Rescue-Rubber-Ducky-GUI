@@ -12,8 +12,10 @@
 public class Driver {
 	
 	public static void main(String[] args) {
-		Hangman hang = new Hangman();
-		RubberDuckGUI ui = new RubberDuckGUI(hang);//replace with other UI than Console or whatever
+			
+		RubberDuckGUI ui = new RubberDuckGUI();//replace with other UI than Console or whatever
+		
+		
 	}
 
 
